@@ -1,0 +1,30 @@
+name: Review Bot
+
+on:
+  # 한국 시간으로 대략 8시, 평일에만 동작
+  schedule:
+    - cron: '0 23 * * 1-5'
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      TOKEN_BITBUCKET: ${{ secrets.TOKEN_BITBUCKET }}
+      TOKEN_SLACK: ${{ secrets.TOKEN_SLACK }}
+      MINIMUM_APPROVAL_COUNT: ${{ vars.MINIMUM_APPROVAL_COUNT }}
+      SLACK_CHANNEL_NAME: ${{ vars.SLACK_CHANNEL_NAME }}
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.7
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+      - name: Run ReviewBot
+        run: |
+          python3 main.py
