@@ -1,4 +1,4 @@
-name: Review Bot
+name: Review Reminder
 
 on:
   # 한국 시간으로 대략 8시, 평일에만 동작
@@ -25,6 +25,6 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-      - name: Run ReviewBot
+      - name: Run ReviewReminder
         run: |
           python3 main.py
