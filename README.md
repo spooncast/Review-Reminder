@@ -19,3 +19,8 @@ Repository 내 `open` 상태의 PR 목록을 조회하여 리뷰 승인이 필�
 이를 바탕으로 각 팀원들은 기한이 많이 남아있는 PR들을 리뷰하느라 마감이 임박한 PR을 지나치는 일을 방지할 수 있으며, 오늘까지 리뷰 & Merge 되어야 하는 PR을 팀원들에게 매번 재촉하지 않아도 됩니다.
 
 각 팀 Repository에 적용하기 위한 usage guide는 [이곳](https://github.com/spooncast/Review-Reminder/wiki)에서 확인 가능합니다.
+
+## 제약 사항
+
+Bitbucket Cloud Repository에 한하여 동작합니다.
+Github 및 그외 Repository에는 해당하지 않습니다.
